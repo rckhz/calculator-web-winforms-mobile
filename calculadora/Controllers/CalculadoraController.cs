@@ -14,13 +14,23 @@ namespace calculadora.Controllers
 
         // diz que a acao so rodaa quando o usuario clicar no botao de calcular
         [HttpPost]
-        //recebe os dados que o usuario digito na tela - numero1, numero2 e operador
-        public IActionResult Index(CalculadoraModel model) 
-        { 
+        public IActionResult Calcular(CalculadoraModel model)
+        {
             //chama o metodo model que vc escreveu - aqui comeca a conta
+            //manda pro model calcular
             model.Calcular();
             //devolve pro usuario o resultado daa conta
-            return View(model);
+            return View("Index", model);
+        }
+
+        [HttpPost]
+        //recebe os dados que o usuario digito na tela - numero1, numero2 e operador
+        public IActionResult Especial(CalculadoraModel model)
+        {
+            //chama o metodo model que vc escreveu - aqui comeca a conta
+            model.CalcularEspecial();
+            //devolve pro usuario o resultado daa conta
+            return View("Index", model);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace calculadora.Models
+﻿//onde recebe os numeros para os calculos
+
+namespace calculadora.Models
 {
     public class CalculadoraModel
     {
@@ -17,6 +19,24 @@
                 "/" => Numero2 != 0 ? Numero1 / Numero2 : 0,
                 _ => 0
             };
+            FoiCalculado = true;
         }
+
+        public string TipoCalculo { get; set; } = "normal";
+        public bool FoiCalculado { get; set; } = false;
+        public void CalcularEspecial()
+        {
+            Resultado = TipoCalculo switch
+            {
+                "porcentagem" => Numero1 / 100,
+                "quadrado" => Math.Pow(Numero1, 2),
+                "raiz" => Math.Sqrt(Numero1),
+                "inverso" => Numero1 != 0 ? 1 / Numero1 : 0,
+                "inverterSinal" => Numero1 * -1,
+                _ => Numero1
+            };
+            FoiCalculado = true;
+        }
+        
     }
 }

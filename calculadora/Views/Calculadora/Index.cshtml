@@ -97,7 +97,7 @@
   <div class="calculator">
 
     @* FORMULARIO: envia os dados pro Controller via POST *@
-    <form id="form-calculadora" method="post" asp-action="Index">
+        <form id="form-calculadora" method="post" asp-action="Calcular">
 
       @* Token de seguranca obrigatorio no ASP.NET *@
       @Html.AntiForgeryToken()
@@ -112,21 +112,21 @@
 
       @* Display: mostra o resultado vindo do C# ou o que o usuario esta digitando *@
       <input type="text" class="display"
-             value="@(Model?.Resultado != null ? Model.Resultado.ToString() : "")"
+             value="@(Model.FoiCalculado ? Model.Resultado.ToString() : "")"
              placeholder="0" readonly />
 
       <div class="buttons">
 
         <!-- Linha 1 -->
-        <button type="button" class="top" onclick="porcentagem()">%</button>
+        <button type="button" class="top" onclick="enviarEspecial('porcentagem')">%</button>
         <button type="button" class="top" onclick="clicarC()">CE</button>
         <button type="button" class="top" onclick="clicarC()">C</button>
         <button type="button" class="top" onclick="clicarBackspace()">&#x232B;</button>
 
         <!-- Linha 2 -->
-        <button type="button" class="top" onclick="inverso()">&#x215F;x</button>
-        <button type="button" class="top" onclick="quadrado()">x&#xB2;</button>
-        <button type="button" class="top" onclick="raiz()">&#xB2;&#x221A;x</button>
+                <button type="button" class="top" onclick="enviarEspecial('inverso')">&#x215F;x</button>
+        <button type="button" class="top" onclick="enviarEspecial('quadrado')">x&#xB2;</button>
+        <button type="button" class="top" onclick="enviarEspecial('raiz')">&#xB2;&#x221A;x</button>
         <button type="button" class="operator" onclick="clicarOperador('/')">&#xF7;</button>
 
         <!-- Linha 3 -->
@@ -148,14 +148,20 @@
         <button type="button" class="operator" onclick="clicarOperador('+')">+</button>
 
         <!-- Linha 6 -->
-        <button type="button" onclick="inverterSinal()">+/-</button>
+                <button type="button" onclick="enviarEspecial('inverterSinal')">+/-</button>
         <button type="button" onclick="clicarNumero('0')">0</button>
         <button type="button" onclick="clicarNumero('.')">.</button>
         <button type="button" class="equal" onclick="clicarIgual()">=</button>
-
+      
       </div>
-    </form>
-
+           
+  </form>
+        <!-- formulario para as contas q sao feitas na hora  -->
+        <form id="form-especial" method="post" asp-action="Especial">
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="campo-especial-numero1" name="Numero1" />
+            <input type="hidden" id="campo-tipocalculo" name="TipoCalculo" />
+        </form>
   </div>
 
   <script>
@@ -229,10 +235,11 @@
 
         historyEl.innerText = numero1 + ' ' + operadorDisplay + ' ' + numero2 + ' =';
 
-        // Preenche os campos hidden antes de submeter
+        // pega oq o usuario digitou
         document.getElementById('campo-numero1').value = numero1;
         document.getElementById('campo-numero2').value = numero2;
         document.getElementById('campo-operador').value = operador;
+        //envia o formulario para o servidor
         document.getElementById('form-calculadora').submit();
     }
 
@@ -254,49 +261,14 @@
         atualizarHistory();
     }
 
-    function porcentagem() {
-        if (numero1 !== '') {
-            numero1 = String(parseFloat(numero1) / 100);
-            atualizarDisplay(numero1);
-            atualizarHistory();
-        }
+    function enviarEspecial(tipo) 
+    {
+        if (numero1 === '') return;
+        document.getElementById('campo-especial-numero1').value = numero1;
+        document.getElementById('campo-tipocalculo').value = tipo;
+        document.getElementById('form-especial').submit();
     }
 
-    function quadrado() {
-        if (numero1 !== '') {
-            numero1 = String(Math.pow(parseFloat(numero1), 2));
-            atualizarDisplay(numero1);
-            resultadoAtual = true;
-            atualizarHistory();
-        }
-    }
-
-    function raiz() {
-        if (numero1 !== '') {
-            numero1 = String(Math.sqrt(parseFloat(numero1)));
-            atualizarDisplay(numero1);
-            resultadoAtual = true;
-            atualizarHistory();
-        }
-    }
-
-    function inverso() {
-        if (numero1 !== '') {
-            numero1 = String(1 / parseFloat(numero1));
-            atualizarDisplay(numero1);
-            resultadoAtual = true;
-            atualizarHistory();
-        }
-    }
-
-    function inverterSinal() {
-        if (numero1 !== '') {
-            numero1 = String(parseFloat(numero1) * -1);
-            atualizarDisplay(numero1);
-            atualizarHistory();
-        }
-    }
   </script>
-
 </body>
 </html>
