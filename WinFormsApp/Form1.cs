@@ -11,7 +11,6 @@ namespace WinFormsApp
         }
         private void txtDisplay_TextChanged(object sender, EventArgs e)
         {
-
         }
         //btn numeros somente (0 - 9)
         private void btn1_Click(object sender, EventArgs e)
@@ -192,6 +191,11 @@ namespace WinFormsApp
             lblHistorico.Text = _model.Numero1 + " " + _model.Operador + " " + _model.Numero2 + " =";
             _model.Calcular();
             txtDisplay.Text = _model.Resultado.ToString();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

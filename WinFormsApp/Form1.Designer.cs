@@ -60,6 +60,7 @@
             // 
             txtDisplay.Location = new Point(2, 34);
             txtDisplay.Name = "txtDisplay";
+            txtDisplay.ReadOnly = true;
             txtDisplay.Size = new Size(238, 23);
             txtDisplay.TabIndex = 0;
             txtDisplay.TextChanged += txtDisplay_TextChanged;
@@ -306,9 +307,10 @@
             // 
             // lblHistorico
             // 
+            lblHistorico.AutoSize = true;
             lblHistorico.Location = new Point(2, 9);
             lblHistorico.Name = "lblHistorico";
-            lblHistorico.Size = new Size(238, 23);
+            lblHistorico.Size = new Size(0, 15);
             lblHistorico.TabIndex = 25;
             lblHistorico.TextAlign = ContentAlignment.MiddleRight;
             lblHistorico.Click += lblHistorico_Click;
@@ -317,6 +319,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(253, 311);
             Controls.Add(lblHistorico);
             Controls.Add(btnIgual);
@@ -346,6 +349,7 @@
             Controls.Add(txtDisplay);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
