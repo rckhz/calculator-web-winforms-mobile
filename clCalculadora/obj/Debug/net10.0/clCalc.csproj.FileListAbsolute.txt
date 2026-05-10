@@ -1,0 +1,12 @@
+C:\saves\calculadora\clCalculadora\bin\Debug\net10.0\clCalc.deps.json
+C:\saves\calculadora\clCalculadora\bin\Debug\net10.0\clCalc.dll
+C:\saves\calculadora\clCalculadora\bin\Debug\net10.0\clCalc.pdb
+C:\saves\calculadora\clCalculadora\obj\Debug\net10.0\clCalc.GeneratedMSBuildEditorConfig.editorconfig
+C:\saves\calculadora\clCalculadora\obj\Debug\net10.0\clCalc.AssemblyInfoInputs.cache
+C:\saves\calculadora\clCalculadora\obj\Debug\net10.0\clCalc.AssemblyInfo.cs
+C:\saves\calculadora\clCalculadora\obj\Debug\net10.0\clCalc.csproj.CoreCompileInputs.cache
+C:\saves\calculadora\clCalculadora\obj\Debug\net10.0\clCalc.sourcelink.json
+C:\saves\calculadora\clCalculadora\obj\Debug\net10.0\clCalc.dll
+C:\saves\calculadora\clCalculadora\obj\Debug\net10.0\refint\clCalc.dll
+C:\saves\calculadora\clCalculadora\obj\Debug\net10.0\clCalc.pdb
+C:\saves\calculadora\clCalculadora\obj\Debug\net10.0\ref\clCalc.dll

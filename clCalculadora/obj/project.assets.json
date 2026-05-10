@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\saves\\calculadora\\clCalculadora\\clCalculadora.csproj",
-      "projectName": "clCalculadora",
-      "projectPath": "C:\\saves\\calculadora\\clCalculadora\\clCalculadora.csproj",
+      "projectUniqueName": "C:\\saves\\calculadora\\clCalculadora\\clCalc.csproj",
+      "projectName": "clCalc",
+      "projectPath": "C:\\saves\\calculadora\\clCalculadora\\clCalc.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
       "outputPath": "C:\\saves\\calculadora\\clCalculadora\\obj\\",
       "projectStyle": "PackageReference",
@@ -33,6 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

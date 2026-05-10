@@ -2,28 +2,28 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "clCalculadora/1.0.0": {
+      "clCalc/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
-          "bin/placeholder/clCalculadora.dll": {}
+          "bin/placeholder/clCalc.dll": {}
         },
         "runtime": {
-          "bin/placeholder/clCalculadora.dll": {}
+          "bin/placeholder/clCalc.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "clCalculadora/1.0.0": {
+    "clCalc/1.0.0": {
       "type": "project",
-      "path": "../clCalculadora/clCalculadora.csproj",
-      "msbuildProject": "../clCalculadora/clCalculadora.csproj"
+      "path": "../clCalculadora/clCalc.csproj",
+      "msbuildProject": "../clCalculadora/clCalc.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "clCalculadora >= 1.0.0"
+      "clCalc >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -33,9 +33,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\saves\\calculadora\\calculadora\\calculadora.csproj",
-      "projectName": "calculadora",
-      "projectPath": "C:\\saves\\calculadora\\calculadora\\calculadora.csproj",
+      "projectUniqueName": "C:\\saves\\calculadora\\calculadora\\mvcCalc.csproj",
+      "projectName": "mvcCalc",
+      "projectPath": "C:\\saves\\calculadora\\calculadora\\mvcCalc.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
       "outputPath": "C:\\saves\\calculadora\\calculadora\\obj\\",
       "projectStyle": "PackageReference",
@@ -52,6 +52,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -59,8 +60,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\saves\\calculadora\\clCalculadora\\clCalculadora.csproj": {
-              "projectPath": "C:\\saves\\calculadora\\clCalculadora\\clCalculadora.csproj"
+            "C:\\saves\\calculadora\\clCalculadora\\clCalc.csproj": {
+              "projectPath": "C:\\saves\\calculadora\\clCalculadora\\clCalc.csproj"
             }
           }
         }
