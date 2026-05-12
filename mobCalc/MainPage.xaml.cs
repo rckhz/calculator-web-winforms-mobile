@@ -56,12 +56,20 @@ namespace mobCalc
             // IGUAL
             else if (texto == "=")
             {
+                // easter egg - antes do return
+                if (lblDisplay.Text == "013")
+                {
+                    lblDisplay.Text = "blassdadada";
+                    return;
+                }
+
                 if (lblDisplay.Text == "" || !_digitandoSegundo) return;
 
                 _model.Numero2 = double.Parse(lblDisplay.Text);
                 lblHistorico.Text = _model.Numero1 + " " + _model.Operador + " " + _model.Numero2 + " =";
                 _model.Calcular();
                 lblDisplay.Text = _model.Resultado.ToString();
+                lblHistorico.Text = lblDisplay.Text; // mostra o valor exato no histórico
                 _digitandoSegundo = false;
                 _acabouDeCalcular = true;
                 _model = new CalculadoraModel();
@@ -79,16 +87,36 @@ namespace mobCalc
             else if (texto == "⌫")
             {
                 if (lblDisplay.Text.Length > 1)
+                {
                     lblDisplay.Text = lblDisplay.Text.Substring(0, lblDisplay.Text.Length - 1);
+                }
                 else
+                {
                     lblDisplay.Text = "0";
+                }
+
+                if (lblHistorico.Text.Length > 0)
+                {
+                    lblHistorico.Text = lblHistorico.Text.Substring(0, lblHistorico.Text.Length - 1);
+                }
             }
-            // PONTO
             else if (texto == ".")
             {
                 if (!lblDisplay.Text.Contains("."))
                     lblDisplay.Text += ".";
             }
+
+            else if (texto == "%" || texto == "+/-")
+            {
+                if (lblDisplay.Text == "0") return;
+
+                _model.Numero1 = double.Parse(lblDisplay.Text);
+                _model.TipoCalculo = texto == "%" ? "porcentagem" : "inverterSinal";
+                _model.CalcularEspecial();
+                lblDisplay.Text = _model.Resultado.ToString();
+            }
+           
+
         }
     }
 }
